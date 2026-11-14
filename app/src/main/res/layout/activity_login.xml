@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <!-- ENCABEZADO -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#D9D9D9">
+
+        <!-- CIRCULO DECORATIVO -->
+        <View
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="top|right"
+            android:translationX="15dp"
+            android:translationY="-40dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:text="Inicio de sesión"
+            android:textColor="#000000"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            android:fontFamily="serif"/>
+
+    </FrameLayout>
+
+    <!-- CONTENIDO -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="top|center_horizontal"
+        android:padding="30dp">
+
+        <!-- USUARIO -->
+        <EditText
+            android:id="@+id/etUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="12dp"
+            android:hint="Usuario"
+            android:paddingStart="20dp"
+            android:background="@drawable/bg_field"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textColorHint="#404040"
+            android:fontFamily="serif"
+            android:singleLine="true"/>
+
+        <!-- CONTRASEÑA -->
+        <EditText
+            android:id="@+id/etContrasena"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:hint="Contraseña"
+            android:background="@drawable/bg_field"
+            android:paddingStart="20dp"
+            android:textSize="20sp"
+            android:textColor="#000000"
+            android:textColorHint="#404040"
+            android:fontFamily="serif"
+            android:inputType="textPassword"
+            android:singleLine="true"/>
+
+        <!-- BOTON INICIAR SESION -->
+        <Button
+            android:id="@+id/btnIniciarSesion"
+            android:layout_width="215dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="44dp"
+            android:text="Iniciar sesión"
+            android:textColor="#000000"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textAllCaps="false"/>
+
+        <!-- TEXTO SIN CUENTA -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="¿No tienes cuenta?"
+            android:textColor="#000000"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:fontFamily="serif"/>
+
+        <!-- BOTON REGISTRARSE SIN RECUADRO -->
+        <Button
+            android:id="@+id/btnIrRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:text="Registrate"
+            android:textColor="#000000"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:textAllCaps="false"
+            android:elevation="0dp"/>
+
+    </LinearLayout>
+
+    <!-- PIE DECORATIVO -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="135dp"
+        android:background="#D9D9D9">
+
+        <View
+            android:layout_width="135dp"
+            android:layout_height="135dp"
+            android:layout_gravity="left|bottom"
+            android:background="@drawable/bg_circle_black"
+            android:translationX="-30dp"
+            android:translationY="35dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center|right"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:background="#000000"/>
+
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="25dp"
+                android:background="#000000"/>
+
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:layout_marginStart="25dp"
+                android:background="#000000"/>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>
