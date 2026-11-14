@@ -49,14 +49,15 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="12dp"
-            android:hint="Usuario"
+            android:hint="Correo"
             android:paddingStart="20dp"
             android:background="@drawable/bg_field"
             android:textSize="20sp"
             android:textColor="#000000"
             android:textColorHint="#404040"
             android:fontFamily="serif"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:inputType="textEmailAddress" />
 
         <!-- CONTRASEÑA -->
         <EditText
@@ -73,6 +74,13 @@
             android:fontFamily="serif"
             android:inputType="textPassword"
             android:singleLine="true"/>
+        <TextView
+            android:id="@+id/tvEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textSize="18sp"/>
+
 
         <!-- BOTON INICIAR SESION -->
         <Button
@@ -152,7 +160,6 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="25dp"
                 android:background="#000000"/>
-
         </LinearLayout>
 
     </FrameLayout>

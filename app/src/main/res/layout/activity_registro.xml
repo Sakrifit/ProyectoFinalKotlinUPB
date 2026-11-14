@@ -79,7 +79,8 @@
             android:textColorHint="#404040"
             android:fontFamily="serif"
             android:inputType="textEmailAddress"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            />
 
         <!-- CONTRASEÑA -->
         <EditText
@@ -117,6 +118,15 @@
             android:inputType="textPassword"
             android:singleLine="true"/>
 
+        <TextView
+            android:id="@+id/tvEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textSize="18sp"
+            android:layout_gravity="center" />
+
+
         <!-- BOTON REGISTRARSE -->
         <Button
             android:id="@+id/btnRegistrarse"
@@ -139,5 +149,6 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:background="#D9D9D9"/>
+
 
 </LinearLayout>
