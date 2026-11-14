@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -29,46 +29,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Enlazar las vistas del diseño
-        val etNombre = findViewById<EditText>(R.id.etNombre)
         val etCorreo = findViewById<EditText>(R.id.etCorreo)
         val etClave = findViewById<EditText>(R.id.etClave)
         val btnIngresar = findViewById<Button>(R.id.btnIngresar)
-        val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
         val tvEstado = findViewById<TextView>(R.id.tvEstado)
 
-        // ---------- REGISTRARSE ----------
-        btnRegistrar.setOnClickListener {
-            val nombre = etNombre.text.toString().trim()
-            val correo = etCorreo.text.toString().trim()
-            val clave = etClave.text.toString()
 
-            if (nombre.isEmpty() || correo.isEmpty() || clave.length < 6) {
-                tvEstado.text = "Llena todos los campos (clave mínimo 6)"
-                return@setOnClickListener
-            }
-
-            // 1. Crear el usuario en Authentication
-            auth.createUserWithEmailAndPassword(correo, clave)
-                .addOnSuccessListener { resultado ->
-                    val uid = resultado.user!!.uid
-
-                    // 2. Guardar su perfil en Realtime Database
-                    val usuario = mapOf(
-                        "nombre" to nombre,
-                        "correo" to correo
-                    )
-                    db.child("usuarios").child(uid).setValue(usuario)
-                        .addOnSuccessListener {
-                            tvEstado.text = "Usuario registrado: $nombre"
-                        }
-                        .addOnFailureListener { e ->
-                            tvEstado.text = "Error al guardar: ${e.message}"
-                        }
-                }
-                .addOnFailureListener { e ->
-                    tvEstado.text = "Error al registrar: ${e.message}"
-                }
-        }
 
         // ---------- INGRESAR ----------
         btnIngresar.setOnClickListener {
@@ -76,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             val clave = etClave.text.toString()
 
             if (correo.isEmpty() || clave.isEmpty()) {
-                tvEstado.text = "Escribe correo y contraseña"
+                tvEstado.text = "Rellena todos los campos"
                 return@setOnClickListener
             }
 
