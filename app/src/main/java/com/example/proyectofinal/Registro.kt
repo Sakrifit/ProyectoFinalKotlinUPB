@@ -14,6 +14,11 @@ import com.google.firebase.database.database
 
 
 class Registro : AppCompatActivity() {
+
+    // Conexión con Firebase
+    private val auth = FirebaseAuth.getInstance()
+    private val db = Firebase.database.reference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
