@@ -34,6 +34,7 @@ class InterfazUsuario : AppCompatActivity() {
         val btnVolver = findViewById<ImageButton>(R.id.btnVolver)
         // volver a iniciar sesion
         btnVolver.setOnClickListener {
+            auth.signOut()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
