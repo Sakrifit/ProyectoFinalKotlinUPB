@@ -64,8 +64,8 @@
             android:background="#FFFFFF">
 
             <TableRow android:background="#FFFFFF">
-                <TextView style="@style/TablaEncabezado" android:text="ID" />
-                <TextView style="@style/TablaEncabezado" android:text="Asiento" />
+                <TextView style="@style/TablaEncabezado" android:text="Sala" />
+                <TextView style="@style/TablaEncabezado" android:text="Asientos" />
                 <TextView style="@style/TablaEncabezado" android:text="Nombre" />
                 <TextView style="@style/TablaEncabezado" android:text="Fecha" />
                 <TextView style="@style/TablaEncabezado" android:text="Hora" />
@@ -73,7 +73,7 @@
             </TableRow>
             <TableRow>
                 <TextView style="@style/TablaCelda" android:text="999" />
-                <TextView style="@style/TablaCelda" android:text="G4" />
+                <TextView style="@style/TablaCelda" android:text="164" />
                 <TextView style="@style/TablaCelda" android:text="Avengers: Doomsday" />
                 <TextView style="@style/TablaCelda" android:text="18/12/2026" />
                 <TextView style="@style/TablaCelda" android:text="23:59" />

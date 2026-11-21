@@ -48,7 +48,7 @@
 
         <!-- NOMBRE USUARIO -->
         <EditText
-            android:id="@+id/etNombreUsuario"
+            android:id="@+id/etNombre"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginStart="12dp"
@@ -84,7 +84,7 @@
 
         <!-- CONTRASEÑA -->
         <EditText
-            android:id="@+id/etContrasena"
+            android:id="@+id/etClave"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginStart="12dp"
@@ -102,7 +102,7 @@
 
         <!-- CONFIRMAR CONTRASEÑA -->
         <EditText
-            android:id="@+id/etConfirmarContrasena"
+            android:id="@+id/etClaveComfirm"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginStart="12dp"
@@ -129,7 +129,7 @@
 
         <!-- BOTON REGISTRARSE -->
         <Button
-            android:id="@+id/btnRegistrarse"
+            android:id="@+id/btnRegistrar"
             android:layout_width="215dp"
             android:layout_height="50dp"
             android:layout_gravity="center"

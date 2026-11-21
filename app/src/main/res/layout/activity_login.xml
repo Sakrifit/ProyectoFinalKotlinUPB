@@ -45,7 +45,7 @@
 
         <!-- USUARIO -->
         <EditText
-            android:id="@+id/etUsuario"
+            android:id="@+id/etCorreo"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="12dp"
@@ -61,7 +61,7 @@
 
         <!-- CONTRASEÑA -->
         <EditText
-            android:id="@+id/etContrasena"
+            android:id="@+id/etClave"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_marginTop="32dp"
@@ -84,7 +84,7 @@
 
         <!-- BOTON INICIAR SESION -->
         <Button
-            android:id="@+id/btnIniciarSesion"
+            android:id="@+id/btnIngresar"
             android:layout_width="215dp"
             android:layout_height="50dp"
             android:layout_marginTop="44dp"
@@ -108,7 +108,7 @@
 
         <!-- BOTON REGISTRARSE SIN RECUADRO -->
         <Button
-            android:id="@+id/btnIrRegistro"
+            android:id="@+id/btnRegistrate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -145,17 +145,20 @@
             android:padding="15dp">
 
             <EditText
+                android:id="@+id/etC1"
                 android:layout_width="60dp"
                 android:layout_height="45dp"
                 android:background="#000000"/>
 
             <EditText
+                android:id="@+id/etC2"
                 android:layout_width="60dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="25dp"
                 android:background="#000000"/>
 
             <EditText
+                android:id="@+id/etC3"
                 android:layout_width="60dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="25dp"
