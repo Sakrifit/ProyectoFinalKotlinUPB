@@ -1,10 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pagos">
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:paddingBottom="8dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="76dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp">
+
+        <TextView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:gravity="center"
+            android:text=" "
+            android:textColor="#333333"
+            android:textSize="28sp"
+            android:background="@android:drawable/editbox_background" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="¡Bienvenido, Admin!"
+            android:textColor="#111111"
+            android:textStyle="bold"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btnVolver"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="14dp"
+        android:text="←"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginHorizontal="8dp"
+        android:fillViewport="true">
+
+        <TableLayout
+            android:id="@+id/tablaUsuarios"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:stretchColumns="*"
+            android:shrinkColumns="*">
+            <TableRow>
+                <TextView style="@style/TablaEncabezado" android:text="Usuario" />
+                <TextView style="@style/TablaEncabezado" android:text="Personas" />
+                <TextView style="@style/TablaEncabezado" android:text="Fecha" />
+                <TextView style="@style/TablaEncabezado" android:text="Hora" />
+                <TextView style="@style/TablaEncabezado" android:text="Cuenta" />
+            </TableRow>
+            <TableRow>
+                <TextView style="@style/TablaCelda" android:text="Anderson" />
+                <TextView style="@style/TablaCelda" android:text="9999" />
+                <TextView style="@style/TablaCelda" android:text="18/12/2026" />
+                <TextView style="@style/TablaCelda" android:text="23:59" />
+                <TextView style="@style/TablaCelda" android:text="1234567890" />
+            </TableRow>
+        </TableLayout>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="16dp"
+        android:fillViewport="true">
+
+        <TableLayout
+            android:id="@+id/tablaUsuariosInferior"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+            <TableRow>
+                <TextView style="@style/TablaEncabezado" android:text="Usuario" />
+                <TextView style="@style/TablaEncabezado" android:text="Personas" />
+                <TextView style="@style/TablaEncabezado" android:text="Fecha" />
+                <TextView style="@style/TablaEncabezado" android:text="Hora" />
+                <TextView style="@style/TablaEncabezado" android:text="Cuenta" />
+            </TableRow>
+        </TableLayout>
+    </HorizontalScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="8dp">
+
+        <TextView android:id="@+id/btnAgregar" style="@style/AccionBarra" android:text="+" />
+        <TextView android:id="@+id/btnActualizar" style="@style/AccionBarra" android:text="⟳" />
+        <TextView android:id="@+id/btnAccionCentral" style="@style/AccionCentral" android:text="" />
+        <TextView android:id="@+id/btnBuscar" style="@style/AccionBarra" android:text="⌕" />
+        <TextView android:id="@+id/btnEliminar" style="@style/AccionBarra" android:text="▣" />
+    </LinearLayout>
+</LinearLayout>
+

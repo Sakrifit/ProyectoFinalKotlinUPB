@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -38,7 +39,7 @@ class Registro : AppCompatActivity() {
         val etClave = findViewById<EditText>(R.id.etClave)
         val etClaveComfirm = findViewById<EditText>(R.id.etClaveComfirm)
         val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
-        val btnVolver = findViewById<Button>(R.id.btnVolver)
+        val btnVolver = findViewById<ImageButton>(R.id.btnVolver)
         val tvEstado = findViewById<TextView>(R.id.tvEstado)
         // volver a iniciar sesion
         btnVolver.setOnClickListener {
