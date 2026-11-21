@@ -3,36 +3,37 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:orientation="vertical">
 
     <!-- Encabezado -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="84dp"
+        android:background="#D9D9D9"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="20dp"
-        android:paddingEnd="16dp"
-        android:background="#D9D9D9">
+        android:paddingEnd="16dp">
 
         <TextView
             android:layout_width="42dp"
             android:layout_height="42dp"
+            android:background="@android:drawable/editbox_background"
             android:gravity="center"
             android:text=" "
             android:textColor="#333333"
-            android:textSize="28sp"
-            android:background="@android:drawable/editbox_background" />
+            android:textSize="28sp" />
 
         <TextView
+            android:id="@+id/tvBienvenida"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="¡Bienvenido, Anderson!"
+            android:text="¡Bienvenido!"
             android:textColor="#111111"
-            android:textStyle="bold"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <ImageButton
@@ -44,22 +45,22 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_arrow_back" />
 
-    <!-- Tabla de reservas -->
+    <!-- Tabla de filmes -->
     <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_marginHorizontal="8dp"
+        android:layout_weight="1"
         android:fillViewport="true"
         android:scrollbars="horizontal">
 
         <TableLayout
             android:id="@+id/tablaReservas"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:stretchColumns="*"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
             android:shrinkColumns="*"
-            android:background="#FFFFFF">
+            android:stretchColumns="*">
 
             <TableRow android:background="#FFFFFF">
                 <TextView style="@style/TablaEncabezado" android:text="Sala" />
@@ -68,14 +69,6 @@
                 <TextView style="@style/TablaEncabezado" android:text="Fecha" />
                 <TextView style="@style/TablaEncabezado" android:text="Hora" />
                 <TextView style="@style/TablaEncabezado" android:text="Precio" />
-            </TableRow>
-            <TableRow>
-                <TextView style="@style/TablaCelda" android:text="999" />
-                <TextView style="@style/TablaCelda" android:text="164" />
-                <TextView style="@style/TablaCelda" android:text="Avengers: Doomsday" />
-                <TextView style="@style/TablaCelda" android:text="18/12/2026" />
-                <TextView style="@style/TablaCelda" android:text="23:59" />
-                <TextView style="@style/TablaCelda" android:text="$50.000" />
             </TableRow>
         </TableLayout>
     </HorizontalScrollView>
@@ -95,27 +88,40 @@
             android:orientation="horizontal">
 
             <Spinner
-                android:id="@+id/spinnerPelicula"
+                android:id="@+id/spinnerFormaDePago"
                 android:layout_width="0dp"
                 android:layout_height="42dp"
-                android:layout_weight="1"/>
-                <!--android:prompt="Nombre de la película" -->
+                android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/btnFormaPago"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
-                android:text="Forma de pago"
-                android:textAllCaps="false" />
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvPeliculaSeleccionada"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Selecciona una película"
+                    android:textColor="#111111"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPrecioBase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text=""
+                    android:textColor="#444444" />
+            </LinearLayout>
         </LinearLayout>
 
         <Spinner
             android:id="@+id/spinnerPersonas"
             android:layout_width="190dp"
             android:layout_height="42dp"
-            android:layout_marginTop="8dp"/>
-            <!--android:prompt="Cantidad de personas" -->
+            android:layout_marginTop="8dp" />
 
         <Button
             android:id="@+id/btnReservar"
@@ -126,6 +132,16 @@
             android:text="Reservar"
             android:textAllCaps="false"
             android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvEstado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text=""
+            android:textSize="16sp" />
     </LinearLayout>
 </LinearLayout>
 
