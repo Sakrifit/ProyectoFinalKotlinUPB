@@ -82,6 +82,7 @@ class Registro : AppCompatActivity() {
                                 startActivity(intent)
                                 finish()
                             }
+                            return@addOnSuccessListener
                         }
                         .addOnFailureListener { e ->
                             tvEstado.text = "Error al guardar: ${e.message}"

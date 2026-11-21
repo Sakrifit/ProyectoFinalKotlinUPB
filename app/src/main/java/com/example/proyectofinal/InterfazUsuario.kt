@@ -51,7 +51,9 @@ data class PagoRegistro(
 class InterfazUsuario : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private val db = FirebaseDatabase.getInstance().reference
+    private val db = FirebaseDatabase
+        .getInstance("https://proyectofinalkotlinupb-default-rtdb.firebaseio.com/")
+        .reference
 
     private lateinit var tvBienvenida: TextView
     private lateinit var btnVolver: ImageButton
@@ -215,8 +217,18 @@ class InterfazUsuario : AppCompatActivity() {
                     val nombre = hijo.child("nombre").getValue(String::class.java) ?: "Sin nombre"
                     val fecha = hijo.child("fecha").getValue(String::class.java) ?: ""
                     val hora = hijo.child("hora").getValue(String::class.java) ?: ""
-                    val sala = hijo.child("sala").getValue(Int::class.java) ?: 0
-                    val asientos = hijo.child("asientos").getValue(Int::class.java) ?: 0
+                    val sala = when (val rawSala = hijo.child("sala").value) {
+                        is Long -> rawSala.toInt()
+                        is Int -> rawSala
+                        is String -> rawSala.toIntOrNull() ?: 0
+                        else -> 0
+                    }
+                    val asientos = when (val rawAsientos = hijo.child("asientos").value) {
+                        is Long -> rawAsientos.toInt()
+                        is Int -> rawAsientos
+                        is String -> rawAsientos.toIntOrNull() ?: 0
+                        else -> 0
+                    }
                     val precio = when (val rawPrecio = hijo.child("precio").value) {
                         is Long -> rawPrecio.toDouble()
                         is Double -> rawPrecio
@@ -328,8 +340,11 @@ class InterfazUsuario : AppCompatActivity() {
 
         filmeAsientosRef.runTransaction(object : Transaction.Handler {
             override fun doTransaction(currentData: MutableData): Transaction.Result {
-                val asientosActuales = currentData.getValue(Int::class.java)
-                    ?: return Transaction.success(currentData)
+                val asientosActuales = when (val raw = currentData.value) {
+                    is Long -> raw.toInt()
+                    is Int -> raw
+                    else -> return Transaction.success(currentData)
+                }
 
                 if (asientosActuales < personasElegidas) {
                     return Transaction.abort()

@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         val btnIngresar = findViewById<Button>(R.id.btnIngresar)
         val tvEstado = findViewById<TextView>(R.id.tvEstado)
         val btnRegistrate = findViewById<Button>(R.id.btnRegistrate)
+        btnRegistrate.paintFlags = btnRegistrate.paintFlags or android.graphics.Paint.UNDERLINE_TEXT_FLAG
         val etC1 = findViewById<EditText>(R.id.etC1)
         val etC2 = findViewById<EditText>(R.id.etC2)
         val etC3 = findViewById<EditText>(R.id.etC3)
@@ -82,6 +83,7 @@ class MainActivity : AppCompatActivity() {
                                 startActivity(Intent(this@MainActivity, destino))
                                 finish()
                             }
+                            return@addOnSuccessListener
                             }
 
                         }
