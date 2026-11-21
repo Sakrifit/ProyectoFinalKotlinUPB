@@ -1,5 +1,6 @@
 package com.example.proyectofinal
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -11,7 +12,11 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.database
-
+//codigo para delay
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlin.time.Duration.Companion.milliseconds
 
 class Registro : AppCompatActivity() {
 
@@ -33,6 +38,14 @@ class Registro : AppCompatActivity() {
         val etClave = findViewById<EditText>(R.id.etClave)
         val etClaveComfirm = findViewById<EditText>(R.id.etClaveComfirm)
         val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
+        val btnVolver = findViewById<Button>(R.id.btnVolver)
+        val tvEstado = findViewById<TextView>(R.id.tvEstado)
+        // volver a iniciar sesion
+        btnVolver.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
         // ---------- REGISTRARSE ----------
         btnRegistrar.setOnClickListener {
             val nombre = etNombre.text.toString().trim()
@@ -45,7 +58,7 @@ class Registro : AppCompatActivity() {
                 return@setOnClickListener
             }
             if (claveComfirm != clave) {
-                tvEstado.text = "La contraseña debe ser la misma"
+                tvEstado.text = "Contraseña desigual en la confirmación"
                 return@setOnClickListener
             }
 
@@ -62,6 +75,12 @@ class Registro : AppCompatActivity() {
                     db.child("usuarios").child(uid).setValue(usuario)
                         .addOnSuccessListener {
                             tvEstado.text = "Usuario registrado: $nombre"
+                            lifecycleScope.launch {
+                                delay(3000L.milliseconds)
+                                val intent = Intent(this@Registro, InterfazUsuario::class.java)
+                                startActivity(intent)
+                                finish()
+                            }
                         }
                         .addOnFailureListener { e ->
                             tvEstado.text = "Error al guardar: ${e.message}"
