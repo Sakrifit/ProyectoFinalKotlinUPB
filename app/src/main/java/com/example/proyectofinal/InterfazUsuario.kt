@@ -17,6 +17,7 @@ class InterfazUsuario : AppCompatActivity() {
     // Conexión con Firebase
     private val auth = FirebaseAuth.getInstance()
     private val db = Firebase.database.reference
+    val uid = FirebaseAuth.getInstance().currentUser?.uid
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
