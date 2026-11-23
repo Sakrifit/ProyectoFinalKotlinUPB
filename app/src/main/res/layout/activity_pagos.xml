@@ -128,26 +128,26 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Cerrar sesión"
+            android:contentDescription="Crear"
             android:scaleType="centerInside"
             android:src="@drawable/plus_circle_svgrepo_com" />
-        <ImageButton
-            android:id="@+id/btnActualizar"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Cerrar sesión"
-            android:scaleType="centerInside"
-            android:src="@drawable/magnifying_glass_8_svgrepo_com" />
-        <TextView android:id="@+id/btnAccionCentral" style="@style/AccionCentral" android:text="" />
         <ImageButton
             android:id="@+id/btnBuscar"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Cerrar sesión"
+            android:contentDescription="Buscar"
+            android:scaleType="centerInside"
+            android:src="@drawable/magnifying_glass_8_svgrepo_com" />
+        <TextView android:id="@+id/btnAccionCentral" style="@style/AccionCentral" android:text="" />
+        <ImageButton
+            android:id="@+id/btnActualizar"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Actualizar"
             android:scaleType="centerInside"
             android:src="@drawable/update_svgrepo_com" />
         <ImageButton
@@ -156,7 +156,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Cerrar sesión"
+            android:contentDescription="Eliminar"
             android:scaleType="centerInside"
             android:src="@drawable/trashcan_svgrepo_com" />
     </LinearLayout>
