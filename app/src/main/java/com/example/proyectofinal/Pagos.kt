@@ -112,7 +112,27 @@ class Pagos : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+        btnCrear.setOnClickListener {
+            crearPago()
+        }
+        btnBuscar.setOnClickListener {
+            buscarPago()
+        }
+        btnActualizar.setOnClickListener {
+            actualizarPago()
+        }
+        btnEliminar.setOnClickListener {
+            eliminarPago()
+        }
 
+    }
+    private fun crearPago() {
+    }
+    private fun buscarPago() {
+    }
+    private fun actualizarPago() {
+    }
+    private fun eliminarPago() {
     }
     private fun limpiarSeleccionPagos() {
         pagoSeleccionado = null
