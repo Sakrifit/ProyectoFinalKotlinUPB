@@ -1,134 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#FFFFFF"
-    android:paddingBottom="8dp">
+    android:fillViewport="true"
+    android:background="#FFFFFF">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="76dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="20dp">
-
-        <TextView
-            android:layout_width="42dp"
-            android:layout_height="42dp"
-            android:gravity="center"
-            android:text=" "
-            android:textColor="#333333"
-            android:textSize="28sp"
-            android:background="@android:drawable/editbox_background" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:text="¡Bienvenido, Admin!"
-            android:textColor="#111111"
-            android:textStyle="bold"
-            android:textSize="20sp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="12dp">
-
-        <TextView
-            android:id="@+id/btnVolver"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:text="←"
-            android:textColor="#000000"
-            android:textSize="30sp"
-            android:clickable="true"
-            android:focusable="true" />
-
-        <Button
-            android:id="@+id/btnListaPagos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lista de pagos"
-            android:textAllCaps="false" />
-    </LinearLayout>
-
-    <HorizontalScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginHorizontal="8dp"
-        android:fillViewport="true">
-
-        <TableLayout
-            android:id="@+id/tablaPagos"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:stretchColumns="*"
-            android:shrinkColumns="*">
-
-            <TableRow>
-                    <TextView style="@style/TablaEncabezado" android:text="Sala" />
-                <TextView style="@style/TablaEncabezado" android:text="Asientos" />
-                <TextView style="@style/TablaEncabezado" android:text="Nombre" />
-                <TextView style="@style/TablaEncabezado" android:text="Fecha" />
-                <TextView style="@style/TablaEncabezado" android:text="Hora" />
-                <TextView style="@style/TablaEncabezado" android:text="Precio" />
-            </TableRow>
-            <TableRow>
-                <TextView style="@style/TablaCelda" android:text="999" />
-                <TextView style="@style/TablaCelda" android:text="G4" />
-                <TextView style="@style/TablaCelda" android:text="Avengers: Doomsday" />
-                <TextView style="@style/TablaCelda" android:text="18/12/2026" />
-                <TextView style="@style/TablaCelda" android:text="23:59" />
-                <TextView style="@style/TablaCelda" android:text="$50.000" />
-            </TableRow>
-        </TableLayout>
-    </HorizontalScrollView>
-
-    <!-- Segunda tabla: encabezados de la lista -->
-    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="16dp"
-        android:fillViewport="true">
+        android:orientation="vertical"
+        android:paddingBottom="8dp">
 
-        <TableLayout
-            android:id="@+id/tablaPagosInferior"
+        <!-- Encabezado de Bienvenida -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp">
+
+            <TextView
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:gravity="center"
+                android:text=" "
+                android:textColor="#333333"
+                android:textSize="28sp"
+                android:background="@android:drawable/editbox_background" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:text="¡Bienvenido, Admin!"
+                android:textColor="#111111"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <!-- Barra de navegación superior -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="12dp">
+
+            <ImageButton
+                android:id="@+id/btnVolver"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Cerrar sesión"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_arrow_back" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btnListaPagos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lista de pagos"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <!-- Tabla Principal (Lista de Filmes) -->
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:stretchColumns="*">
-            <TableRow>
-                <TextView style="@style/TablaEncabezado" android:text="ID" />
-                <TextView style="@style/TablaEncabezado" android:text="Asiento" />
-                <TextView style="@style/TablaEncabezado" android:text="Nombre" />
-                <TextView style="@style/TablaEncabezado" android:text="Fecha" />
-                <TextView style="@style/TablaEncabezado" android:text="Hora" />
-                <TextView style="@style/TablaEncabezado" android:text="Precio" />
-            </TableRow>
-        </TableLayout>
-    </HorizontalScrollView>
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
+            android:fillViewport="true">
 
-    <!-- Barra inferior de acciones -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="8dp">
+            <TableLayout
+                android:id="@+id/tablaPagos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stretchColumns="0,1,2,3,4,5">
 
-        <TextView android:id="@+id/btnAgregar" style="@style/AccionBarra" android:text="+" />
-        <TextView android:id="@+id/btnActualizar" style="@style/AccionBarra" android:text="⟳" />
-        <TextView android:id="@+id/btnAccionCentral" style="@style/AccionCentral" android:text="" />
-        <TextView android:id="@+id/btnBuscar" style="@style/AccionBarra" android:text="⌕" />
-        <TextView android:id="@+id/btnEliminar" style="@style/AccionBarra" android:text="▣" />
+                <TableRow>
+                    <TextView style="@style/TablaEncabezado" android:text="Sala" />
+                    <TextView style="@style/TablaEncabezado" android:text="Asientos" />
+                    <TextView style="@style/TablaEncabezado" android:text="Nombre" />
+                    <TextView style="@style/TablaEncabezado" android:text="Fecha" />
+                    <TextView style="@style/TablaEncabezado" android:text="Hora" />
+                    <TextView style="@style/TablaEncabezado" android:text="Precio" />
+                </TableRow>
+            </TableLayout>
+        </HorizontalScrollView>
+
+        <!-- Espaciador flexible para empujar la sección inferior hacia abajo cuando sobra pantalla -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <!-- Contenedor inferior (Agrupa la tabla de ingreso y los botones juntos) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp"
+            android:background="#FFFFFF">
+
+            <!-- Tabla Inferior (Aparece al presionar Crear o Buscar) -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:fillViewport="true">
+
+                <TableLayout
+                    android:id="@+id/tablaPagosInferior"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:stretchColumns="0,1,2,3,4,5">
+                    <TableRow>
+                        <TextView style="@style/TablaEncabezado" android:hint="Sala" />
+                        <TextView style="@style/TablaEncabezado" android:hint="Asiento" />
+                        <TextView style="@style/TablaEncabezado" android:hint="Nombre" />
+                        <TextView style="@style/TablaEncabezado" android:hint="Fecha" />
+                        <TextView style="@style/TablaEncabezado" android:hint="Hora"/>
+                        <TextView style="@style/TablaEncabezado" android:hint="Precio" />
+                    </TableRow>
+                </TableLayout>
+            </HorizontalScrollView>
+
+            <!-- Barra inferior de acciones -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="8dp">
+
+                <ImageButton
+                    android:id="@+id/btnCrear"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Crear"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/plus_circle_svgrepo_com" />
+
+                <ImageButton
+                    android:id="@+id/btnActualizar"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Buscar"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/magnifying_glass_8_svgrepo_com" />
+
+                <TextView
+                    android:id="@+id/btnAccionCentral"
+                    style="@style/AccionCentral"
+                    android:text="" />
+
+                <ImageButton
+                    android:id="@+id/btnBuscar"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Actualizar"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/update_svgrepo_com" />
+
+                <ImageButton
+                    android:id="@+id/btnEliminar"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Eliminar"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/trashcan_svgrepo_com" />
+            </LinearLayout>
+        </LinearLayout>
+
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
