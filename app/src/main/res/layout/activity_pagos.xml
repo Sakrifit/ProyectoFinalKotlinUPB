@@ -80,6 +80,7 @@
             <TableRow android:background="#FFFFFF">
                 <TextView style="@style/TablaEncabezado" android:text="Usuario" />
                 <TextView style="@style/TablaEncabezado" android:text="Personas" />
+                <TextView style="@style/TablaEncabezado" android:text="Sala" />
                 <TextView style="@style/TablaEncabezado" android:text="Fecha" />
                 <TextView style="@style/TablaEncabezado" android:text="Hora" />
                 <TextView style="@style/TablaEncabezado" android:text="Cuenta" />
@@ -105,6 +106,8 @@
                     android:id="@+id/etUsuario"/>
                 <EditText style="@style/TablaEncabezado" android:hint="Personas"
                     android:id="@+id/etPersonas"/>
+                <EditText style="@style/TablaEncabezado" android:hint="Sala"
+                    android:id="@+id/etSala"/>
                 <EditText style="@style/TablaEncabezado" android:hint="Fecha"
                     android:id="@+id/etFecha"/>
                 <EditText style="@style/TablaEncabezado" android:hint="Hora"
@@ -140,7 +143,7 @@
             android:contentDescription="Buscar"
             android:scaleType="centerInside"
             android:src="@drawable/magnifying_glass_8_svgrepo_com" />
-        <TextView android:id="@+id/btnAccionCentral" style="@style/AccionCentral" android:text="" />
+        <TextView android:id="@+id/tvLogo" style="@style/AccionCentral" android:text="" />
         <ImageButton
             android:id="@+id/btnActualizar"
             android:layout_width="0dp"

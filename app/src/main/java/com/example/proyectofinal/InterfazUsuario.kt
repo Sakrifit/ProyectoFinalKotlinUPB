@@ -188,14 +188,11 @@ class InterfazUsuario : AppCompatActivity() {
     private fun cargarNombreUsuario() {
         val user = auth.currentUser
         if (user == null) {
-            tvBienvenida.text = "¡Bienvenido!"
+            tvBienvenida.text = "¡Bienvenido, Usuario!"
             return
         }
 
-        nombreUsuarioActual = user.displayName?.takeIf { it.isNotBlank() }
-            ?: user.email?.substringBefore("@")
-                    ?: "Usuario"
-        tvBienvenida.text = "¡Bienvenido, $nombreUsuarioActual!"
+        tvBienvenida.text = "¡Bienvenido, Usuario!"
 
         db.child("usuarios").child(user.uid).child("nombre").get()
             .addOnSuccessListener { snap ->
