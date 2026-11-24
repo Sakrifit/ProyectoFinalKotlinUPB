@@ -4,14 +4,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/gris_claro"
     android:orientation="vertical">
 
     <!-- Encabezado -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="84dp"
-        android:background="#D9D9D9"
+        android:background="@color/rojo_carmesi"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingStart="20dp"
@@ -20,7 +20,7 @@
         <TextView
             android:layout_width="42dp"
             android:layout_height="42dp"
-            android:background="@android:drawable/editbox_background"
+            android:background="@drawable/limbus"
             android:gravity="center"
             android:text=" "
             android:textColor="#333333"
@@ -64,12 +64,18 @@
             android:stretchColumns="*">
 
             <TableRow android:background="#FFFFFF">
-                <TextView style="@style/TablaEncabezado" android:text="Sala" />
-                <TextView style="@style/TablaEncabezado" android:text="Asientos" />
-                <TextView style="@style/TablaEncabezado" android:text="Nombre" />
-                <TextView style="@style/TablaEncabezado" android:text="Fecha" />
-                <TextView style="@style/TablaEncabezado" android:text="Hora" />
-                <TextView style="@style/TablaEncabezado" android:text="Precio" />
+                <TextView style="@style/TablaEncabezado" android:text="Sala"
+                    android:background="@color/ambar"/>
+                <TextView style="@style/TablaEncabezado" android:text="Asientos"
+                    android:background="@color/ambar"/>
+                <TextView style="@style/TablaEncabezado" android:text="Nombre"
+                    android:background="@color/ambar"/>
+                <TextView style="@style/TablaEncabezado" android:text="Fecha"
+                    android:background="@color/ambar"/>
+                <TextView style="@style/TablaEncabezado" android:text="Hora"
+                    android:background="@color/ambar"/>
+                <TextView style="@style/TablaEncabezado" android:text="Precio"
+                    android:background="@color/ambar"/>
             </TableRow>
         </TableLayout>
     </HorizontalScrollView>
@@ -80,7 +86,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:paddingBottom="24dp">
+        android:paddingBottom="24dp"
+        android:background="@color/rojo_carmesi">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,7 +99,8 @@
                 android:id="@+id/spinnerFormaDePago"
                 android:layout_width="0dp"
                 android:layout_height="42dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@color/marfil"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -106,7 +114,8 @@
                     android:layout_height="wrap_content"
                     android:text="Selecciona una película"
                     android:textColor="#111111"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:background="@color/ambar"/>
 
                 <TextView
                     android:id="@+id/tvPrecioBase"
@@ -114,7 +123,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
                     android:text=""
-                    android:textColor="#444444" />
+                    android:textColor="@color/ambar" />
             </LinearLayout>
         </LinearLayout>
 
@@ -122,7 +131,8 @@
             android:id="@+id/spinnerPersonas"
             android:layout_width="190dp"
             android:layout_height="42dp"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            android:background="@color/marfil"/>
 
         <Button
             android:id="@+id/btnReservar"
@@ -132,7 +142,8 @@
             android:layout_marginTop="28dp"
             android:text="Reservar"
             android:textAllCaps="false"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:backgroundTint="@color/carbon_oscuro"/>
 
         <TextView
             android:id="@+id/tvEstado"

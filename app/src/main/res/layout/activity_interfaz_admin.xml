@@ -10,7 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingBottom="8dp">
+        android:paddingBottom="8dp"
+        android:background="@color/gris_claro">
 
         <!-- Encabezado de Bienvenida -->
         <LinearLayout
@@ -18,7 +19,8 @@
             android:layout_height="76dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingHorizontal="20dp">
+            android:paddingHorizontal="20dp"
+            android:background="@color/rojo_carmesi">
 
             <TextView
                 android:layout_width="42dp"
@@ -27,7 +29,7 @@
                 android:text=" "
                 android:textColor="#333333"
                 android:textSize="28sp"
-                android:background="@android:drawable/editbox_background" />
+                android:background="@drawable/limbus" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -66,7 +68,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Lista de pagos"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:backgroundTint="@color/rojo_carmesi"/>
         </LinearLayout>
 
         <!-- Tabla Principal (Lista de Filmes) -->
@@ -75,7 +78,8 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="8dp"
             android:layout_marginTop="8dp"
-            android:fillViewport="true">
+            android:fillViewport="true"
+            android:scrollbars="horizontal">
 
             <TableLayout
                 android:id="@+id/tablaPagos"
@@ -84,12 +88,24 @@
                 android:stretchColumns="0,1,2,3,4,5">
 
                 <TableRow>
-                    <TextView style="@style/TablaEncabezado" android:text="Sala" />
-                    <TextView style="@style/TablaEncabezado" android:text="Asientos" />
-                    <TextView style="@style/TablaEncabezado" android:text="Nombre" />
-                    <TextView style="@style/TablaEncabezado" android:text="Fecha" />
-                    <TextView style="@style/TablaEncabezado" android:text="Hora" />
-                    <TextView style="@style/TablaEncabezado" android:text="Precio" />
+                    <TextView style="@style/TablaEncabezado" android:text="Sala"
+                        android:textColor="@color/ambar"
+                        android:background="@color/carbon_oscuro"/>
+                    <TextView style="@style/TablaEncabezado" android:text="Asientos"
+                        android:textColor="@color/ambar"
+                        android:background="@color/gris_menos_oscuro"/>
+                    <TextView style="@style/TablaEncabezado" android:text="Nombre"
+                        android:textColor="@color/ambar"
+                        android:background="@color/carbon_oscuro"/>
+                    <TextView style="@style/TablaEncabezado" android:text="Fecha"
+                        android:textColor="@color/ambar"
+                        android:background="@color/gris_menos_oscuro"/>
+                    <TextView style="@style/TablaEncabezado" android:text="Hora"
+                        android:textColor="@color/ambar"
+                        android:background="@color/carbon_oscuro"/>
+                    <TextView style="@style/TablaEncabezado" android:text="Precio"
+                        android:textColor="@color/ambar"
+                        android:background="@color/gris_menos_oscuro"/>
                 </TableRow>
             </TableLayout>
         </HorizontalScrollView>
@@ -106,7 +122,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="12dp"
-            android:background="#FFFFFF">
+            android:background="@color/rojo_carmesi">
 
             <!-- Tabla Inferior (Aparece al presionar Crear o Buscar) -->
             <HorizontalScrollView
@@ -119,7 +135,7 @@
                     android:id="@+id/tablaPagosInferior"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:stretchColumns="0,1,2,3,4,5">
+                    android:stretchColumns="*">
                     <TableRow>
                         <TextView style="@style/TablaEncabezado" android:hint="Sala" />
                         <TextView style="@style/TablaEncabezado" android:hint="Asiento" />
@@ -161,9 +177,10 @@
                     android:src="@drawable/magnifying_glass_8_svgrepo_com" />
 
                 <TextView
-                    android:id="@+id/btnAccionCentral"
+                    android:id="@+id/tvLogo"
                     style="@style/AccionCentral"
-                    android:text="" />
+                    android:text=""
+                    android:background="@drawable/dante"/>
 
                 <ImageButton
                     android:id="@+id/btnActualizar"

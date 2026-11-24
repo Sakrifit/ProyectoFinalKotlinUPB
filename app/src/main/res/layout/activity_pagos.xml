@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFFFFF"
+    android:background="@color/gris_claro"
     android:paddingBottom="8dp">
 
     <LinearLayout
@@ -14,7 +14,7 @@
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="20dp"
-        android:background="#D9D9D9">
+        android:background="@color/rojo_carmesi">
 
         <TextView
             android:layout_width="42dp"
@@ -23,7 +23,7 @@
             android:text=" "
             android:textColor="#333333"
             android:textSize="28sp"
-            android:background="@android:drawable/editbox_background" />
+            android:background="@drawable/limbus" />
 
         <TextView
             android:id="@+id/tvBienvenida"
@@ -37,13 +37,15 @@
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
+        android:layout_height="44dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="12dp">
 
         <ImageButton
             android:id="@+id/btnVolver"
             android:layout_width="48dp"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Cerrar sesión"
             android:scaleType="centerInside"
@@ -58,15 +60,15 @@
             android:layout_height="wrap_content"
             android:text="Lista de filmes"
             android:textAllCaps="false"
-            android:layout_marginEnd="12dp"/>
+            android:backgroundTint="@color/rojo_carmesi"/>
 
     </LinearLayout>
     <!-- Tabla de pagos -->
     <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="wrap_content"
         android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="8dp"
         android:fillViewport="true"
         android:scrollbars="horizontal">
 
@@ -78,96 +80,172 @@
             android:stretchColumns="*"
             android:shrinkColumns="*">
             <TableRow android:background="#FFFFFF">
-                <TextView style="@style/TablaEncabezado" android:text="Usuario" />
-                <TextView style="@style/TablaEncabezado" android:text="Personas" />
-                <TextView style="@style/TablaEncabezado" android:text="Sala" />
-                <TextView style="@style/TablaEncabezado" android:text="Fecha" />
-                <TextView style="@style/TablaEncabezado" android:text="Hora" />
-                <TextView style="@style/TablaEncabezado" android:text="Cuenta" />
+                <TextView style="@style/TablaEncabezado" android:text="Usuario"
+                    android:textColor="@color/ambar"
+                    android:background="@color/carbon_oscuro"/>
+                <TextView style="@style/TablaEncabezado" android:text="Personas"
+                    android:textColor="@color/ambar"
+                    android:background="@color/gris_menos_oscuro"/>
+                <TextView style="@style/TablaEncabezado" android:text="Sala"
+                    android:textColor="@color/ambar"
+                    android:background="@color/carbon_oscuro"/>
+                <TextView style="@style/TablaEncabezado" android:text="Fecha"
+                    android:textColor="@color/ambar"
+                    android:background="@color/gris_menos_oscuro"/>
+                <TextView style="@style/TablaEncabezado" android:text="Hora"
+                    android:textColor="@color/ambar"
+                    android:background="@color/carbon_oscuro"/>
+                <TextView style="@style/TablaEncabezado" android:text="Cuenta"
+                    android:textColor="@color/ambar"
+                    android:background="@color/gris_menos_oscuro"/>
             </TableRow>
         </TableLayout>
     </HorizontalScrollView>
-
-    <!-- Escribir la información que se ingresara al CRUD -->
-    <HorizontalScrollView
+    <!-- Espaciador flexible para empujar la sección inferior hacia abajo cuando sobra pantalla -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:layout_marginTop="16dp"
-        android:fillViewport="true">
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-        <TableLayout
-            android:id="@+id/tablaCRUD"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:stretchColumns="*">
-            <TableRow>
-                <EditText style="@style/TablaEncabezado" android:hint="Usuario"
-                    android:id="@+id/etUsuario"
-                    android:minWidth="85dp"/>
-                <EditText style="@style/TablaEncabezado" android:hint="Personas"
-                    android:id="@+id/etPersonas"
-                    android:minWidth="85dp"/>
-                <EditText style="@style/TablaEncabezado" android:hint="Sala"
-                    android:id="@+id/etSala"
-                    android:minWidth="85dp"/>
-                <EditText style="@style/TablaEncabezado" android:hint="Fecha"
-                    android:id="@+id/etFecha"
-                    android:minWidth="85dp"/>
-                <EditText style="@style/TablaEncabezado" android:hint="Hora"
-                    android:id="@+id/etHora"
-                    android:minWidth="85dp"/>
-                <EditText style="@style/TablaEncabezado" android:hint="Cuenta"
-                    android:id="@+id/etCuenta"
-                    android:minWidth="85dp"/>
-            </TableRow>
-        </TableLayout>
-    </HorizontalScrollView>
-    <!-- Controles de CRUD -->
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:paddingHorizontal="8dp">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/rojo_carmesi"
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/btnCrear"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Crear"
-            android:scaleType="centerInside"
-            android:src="@drawable/plus_circle_svgrepo_com" />
-        <ImageButton
-            android:id="@+id/btnBuscar"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Buscar"
-            android:scaleType="centerInside"
-            android:src="@drawable/magnifying_glass_8_svgrepo_com" />
-        <TextView android:id="@+id/tvLogo" style="@style/AccionCentral" android:text="" />
-        <ImageButton
-            android:id="@+id/btnActualizar"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Actualizar"
-            android:scaleType="centerInside"
-            android:src="@drawable/update_svgrepo_com" />
-        <ImageButton
-            android:id="@+id/btnEliminar"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Eliminar"
-            android:scaleType="centerInside"
-            android:src="@drawable/trashcan_svgrepo_com" />
+        <!-- Escribir la información que se ingresara al CRUD -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:fillViewport="true">
+
+            <TableLayout
+                android:id="@+id/tablaCRUD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*">
+
+                <TableRow>
+                    <EditText
+                        android:id="@+id/etUsuario"
+                        style="@style/TablaEncabezado"
+                        android:background="#FFFFFF"
+                        android:hint="Usuario"
+                        android:minWidth="48dp"
+                        android:layout_marginEnd="1dp"
+                        android:textColor="#111111"
+                        android:textColorHint="#888888" />
+
+                    <EditText
+                        android:id="@+id/etPersonas"
+                        style="@style/TablaEncabezado"
+                        android:background="#FFFFFF"
+                        android:hint="Personas"
+                        android:minWidth="48dp"
+                        android:layout_marginEnd="1dp"
+                        android:textColor="#111111"
+                        android:textColorHint="#888888" />
+
+                    <EditText
+                        android:id="@+id/etSala"
+                        style="@style/TablaEncabezado"
+                        android:layout_marginEnd="1dp"
+                        android:background="#FFFFFF"
+                        android:hint="Sala"
+                        android:minWidth="48dp"
+                        android:textColor="#111111"
+                        android:textColorHint="#888888" />
+
+                    <EditText
+                        android:id="@+id/etFecha"
+                        style="@style/TablaEncabezado"
+                        android:layout_marginEnd="2dp"
+                        android:background="#FFFFFF"
+                        android:hint="Fecha"
+                        android:minWidth="48dp"
+                        android:textColor="#111111"
+                        android:textColorHint="#888888" />
+
+                    <EditText
+                        android:id="@+id/etHora"
+                        style="@style/TablaEncabezado"
+                        android:layout_marginEnd="2dp"
+                        android:background="#FFFFFF"
+                        android:hint="Hora"
+                        android:minWidth="48dp"
+                        android:textColor="#111111"
+                        android:textColorHint="#888888" />
+
+                    <EditText
+                        android:id="@+id/etCuenta"
+                        style="@style/TablaEncabezado"
+                        android:background="#FFFFFF"
+                        android:hint="Cuenta"
+                        android:minWidth="48dp"
+                        android:textColor="#111111"
+                        android:textColorHint="#888888" />
+                </TableRow>
+            </TableLayout>
+        </HorizontalScrollView>
+
+        <!-- Controles de CRUD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp">
+
+            <ImageButton
+                android:id="@+id/btnCrear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Crear"
+                android:scaleType="centerInside"
+                android:src="@drawable/plus_circle_svgrepo_com" />
+
+            <ImageButton
+                android:id="@+id/btnBuscar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Buscar"
+                android:scaleType="centerInside"
+                android:src="@drawable/magnifying_glass_8_svgrepo_com" />
+
+            <TextView
+                android:id="@+id/tvLogo"
+                style="@style/AccionCentral"
+                android:text=""
+                android:background="@drawable/dante"/>
+
+            <ImageButton
+                android:id="@+id/btnActualizar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Actualizar"
+                android:scaleType="centerInside"
+                android:src="@drawable/update_svgrepo_com" />
+
+            <ImageButton
+                android:id="@+id/btnEliminar"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Eliminar"
+                android:scaleType="centerInside"
+                android:src="@drawable/trashcan_svgrepo_com" />
+        </LinearLayout>
+
     </LinearLayout>
-</LinearLayout>
 
+</LinearLayout>
