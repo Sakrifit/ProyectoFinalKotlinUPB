@@ -72,7 +72,7 @@
 
         <TableLayout
             android:id="@+id/tablaPagos"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
             android:stretchColumns="*"
@@ -98,22 +98,28 @@
 
         <TableLayout
             android:id="@+id/tablaCRUD"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:stretchColumns="*">
             <TableRow>
                 <EditText style="@style/TablaEncabezado" android:hint="Usuario"
-                    android:id="@+id/etUsuario"/>
+                    android:id="@+id/etUsuario"
+                    android:minWidth="85dp"/>
                 <EditText style="@style/TablaEncabezado" android:hint="Personas"
-                    android:id="@+id/etPersonas"/>
+                    android:id="@+id/etPersonas"
+                    android:minWidth="85dp"/>
                 <EditText style="@style/TablaEncabezado" android:hint="Sala"
-                    android:id="@+id/etSala"/>
+                    android:id="@+id/etSala"
+                    android:minWidth="85dp"/>
                 <EditText style="@style/TablaEncabezado" android:hint="Fecha"
-                    android:id="@+id/etFecha"/>
+                    android:id="@+id/etFecha"
+                    android:minWidth="85dp"/>
                 <EditText style="@style/TablaEncabezado" android:hint="Hora"
-                    android:id="@+id/etHora"/>
+                    android:id="@+id/etHora"
+                    android:minWidth="85dp"/>
                 <EditText style="@style/TablaEncabezado" android:hint="Cuenta"
-                    android:id="@+id/etCuenta"/>
+                    android:id="@+id/etCuenta"
+                    android:minWidth="85dp"/>
             </TableRow>
         </TableLayout>
     </HorizontalScrollView>
