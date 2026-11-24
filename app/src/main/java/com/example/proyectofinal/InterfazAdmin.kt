@@ -85,20 +85,28 @@ class InterfazAdmin : AppCompatActivity() {
             }
         }
 
-        btnActualizar.setOnClickListener {
+        btnBuscar.setOnClickListener {
             if (tablaPagosInferior.visibility == View.VISIBLE && modoAccion == "BUSCAR") {
                 ejecutarAccionInferior()
             } else {
                 modoAccion = "BUSCAR"
-                prepararTablaInferiorInteractiva("Ingrese el criterio de búsqueda abajo y presione la lupa")
+                prepararTablaInferiorInteractiva("Escribe el filtro y presiona buscar de nuevo")
             }
         }
 
-        btnBuscar.setOnClickListener {
-            filmeSeleccionado = null
-            tablaPagosInferior.visibility = View.GONE
-            escucharFilmes()
-            Toast.makeText(this, "Tabla actualizada", Toast.LENGTH_SHORT).show()
+        btnActualizar.setOnClickListener {
+            val seleccionado = filmeSeleccionado
+            if (seleccionado == null) {
+                Toast.makeText(this, "Selecciona un filme en la tabla superior para actualizar", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (tablaPagosInferior.visibility == View.VISIBLE && modoAccion == "ACTUALIZAR") {
+                ejecutarAccionInferior()
+            } else {
+                modoAccion = "ACTUALIZAR"
+                prepararTablaInferiorInteractiva("Escribe solo los campos a cambiar y presiona actualizar de nuevo")
+            }
         }
 
         btnEliminar.setOnClickListener {
@@ -316,6 +324,64 @@ class InterfazAdmin : AppCompatActivity() {
             actualizarTablaPrincipal(filtrados)
             tablaPagosInferior.visibility = View.GONE
             Toast.makeText(this, "Se encontraron ${filtrados.size} resultados", Toast.LENGTH_SHORT).show()
+        } else if (modoAccion == "ACTUALIZAR") {
+        val seleccionado = filmeSeleccionado
+        if (seleccionado == null) {
+            Toast.makeText(this, "Selecciona un filme en la tabla superior para actualizar", Toast.LENGTH_SHORT).show()
+            return
         }
+
+        // Si el campo está vacío, conserva el valor actual del filme seleccionado
+        val nuevaSala = if (salaStr.isEmpty()) {
+            seleccionado.sala
+        } else {
+            salaStr.toIntOrNull() ?: run {
+                Toast.makeText(this, "Sala inválida", Toast.LENGTH_SHORT).show()
+                return
+            }
+        }
+
+        val nuevosAsientos = if (asientosStr.isEmpty()) {
+            seleccionado.asientos
+        } else {
+            asientosStr.toIntOrNull() ?: run {
+                Toast.makeText(this, "Asientos inválidos", Toast.LENGTH_SHORT).show()
+                return
+            }
+        }
+
+        val nuevoNombre = if (nombre.isEmpty()) seleccionado.nombre else nombre
+        val nuevaFecha = if (fecha.isEmpty()) seleccionado.fecha else fecha
+        val nuevaHora = if (hora.isEmpty()) seleccionado.hora else hora
+
+        val nuevoPrecio = if (precioStr.isEmpty()) {
+            seleccionado.precio
+        } else {
+            precioStr.replace(",", ".").toDoubleOrNull() ?: run {
+                Toast.makeText(this, "Precio inválido", Toast.LENGTH_SHORT).show()
+                return
+            }
+        }
+
+        val filmeActualizado = seleccionado.copy(
+            sala = nuevaSala,
+            asientos = nuevosAsientos,
+            nombre = nuevoNombre,
+            fecha = nuevaFecha,
+            hora = nuevaHora,
+            precio = nuevoPrecio
+        )
+
+        db.child("filmes").child(seleccionado.id).setValue(filmeActualizado)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Filme actualizado correctamente", Toast.LENGTH_SHORT).show()
+                filmeSeleccionado = filmeActualizado
+                tablaPagosInferior.visibility = View.GONE
+                modoAccion = ""
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Error al actualizar: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
     }
 }

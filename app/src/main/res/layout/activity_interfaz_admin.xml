@@ -151,7 +151,7 @@
                     android:src="@drawable/plus_circle_svgrepo_com" />
 
                 <ImageButton
-                    android:id="@+id/btnActualizar"
+                    android:id="@+id/btnBuscar"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -166,7 +166,7 @@
                     android:text="" />
 
                 <ImageButton
-                    android:id="@+id/btnBuscar"
+                    android:id="@+id/btnActualizar"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
